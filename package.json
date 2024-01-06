@@ -1,6 +1,6 @@
 {
-  "name": "snippetcraft",
-  "displayName": "SnippetCraft",
+  "name": "swaggercraft",
+  "displayName": "swaggercraft",
   "description": "extension para practicar - autocomplete",
   "version": "0.0.1",
   "engines": {
@@ -14,12 +14,21 @@
   "contributes": {
     "commands": [
       {
-        "command": "snippetcraft.helloWorld",
+        "command": "swaggercraft.helloWorld",
         "title": "Hello World"
       },
       {
-        "command": "snippetcraft.configInit",
+        "command": "swaggercraft.configInit",
         "title": "Config Init for Swagger"
+      },
+      {
+        "command": "swaggercraft.loadConfigProyect",
+        "title": "Load Config Proyect for Swagger"
+      },
+
+      {
+        "command": "swaggercraft.onSaveConfig",
+        "title": "On Save Config Build for Swagger"
       }
     ],
     "snippets": [

@@ -6,6 +6,17 @@ const swaggerInit = require("../scripts/swagger");
 
 const onSave = (context) =>
   vscode.workspace.onDidSaveTextDocument((document) => {
+    const buildCommand = storage(context).get(storageEnum.BUILD);
+    if (buildCommand) {
+      const terminal = vscode.window.createTerminal();
+      terminal.hide();
+      terminal.sendText(buildCommand);
+
+      vscode.window.showInformationMessage(
+        "Swagger documentation generated successfully"
+      );
+      return;
+    }
     const workspaceName = storage(context).get(storageEnum.SELECTED_WORKSPACE);
     swaggerInit(workspaceName + ".json", context);
   });

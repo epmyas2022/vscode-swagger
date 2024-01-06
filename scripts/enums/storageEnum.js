@@ -4,6 +4,7 @@ const storageEnum = Object.freeze({
     SESSION: 'session',
     SELECTED_WORKSPACE: 'selectedWorkspace',
     SELECTED_PATH_WORKSPACE: 'selectedPathWorkspace',
+    BUILD: 'build',
 });
 
 

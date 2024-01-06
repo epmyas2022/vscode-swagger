@@ -1,10 +1,10 @@
 const vscode = require("vscode");
 const fs = require("fs");
-
+const dependecies = require("../helpers/dependencies");
 const { storage, storageEnum, swaggerInit } = require("../scripts/index");
 
 module.exports = (context) =>
-  vscode.commands.registerCommand("snippetcraft.configInit", async function () {
+  vscode.commands.registerCommand("swaggercraft.configInit", async function () {
     try {
       vscode
         .window.showInformationMessage(`NOTE: If you are using the express Router, you must pass in the 'routes' only the 
@@ -49,7 +49,8 @@ module.exports = (context) =>
         },
         host: host || "localhost:3000",
         routes: routes || "./path/userRoutes.js, ./path/bookRoutes.js",
-        outputFile: outputFile || "/swagger-output.json",
+        outputFile:  outputFile || "/swagger-output.json",
+        fullPath: workspacePath,
       };
 
       fs.writeFileSync(
@@ -68,6 +69,17 @@ module.exports = (context) =>
         storage(context).get(storageEnum.SELECTED_WORKSPACE) + ".json",
         context
       );
+
+      const answer = await vscode.window.showInformationMessage(
+        `Do you want to install the dependencie 'swagger-ui-express'?`,
+        "Yes",
+        "No"
+      );
+  
+      if (answer === "Yes"){
+        dependecies.installDependencies("swagger-ui-express");
+       
+      }
     } catch (err) {
       console.log(err);
     }

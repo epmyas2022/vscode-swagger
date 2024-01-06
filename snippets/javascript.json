@@ -4,5 +4,12 @@
     "body": ["//#swagger.tags = ['someTag']"],
     "description": "Swagger tag",
     "detail": "Swagger tag"
+  },
+
+  "swagger-ui-express": {
+    "prefix": "import-swagger-ui",
+    "body": ["const swaggerUi = require('swagger-ui-express');"],
+    "description": "Swagger ui express import",
+    "detail": "Swagger ui express import"
   }
 }

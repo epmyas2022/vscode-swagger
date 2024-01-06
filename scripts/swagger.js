@@ -4,7 +4,7 @@ const fs = require("fs");
 const storage = require("./storage");
 const storageEnum = require("./enums/storageEnum");
 const vscode = require("vscode");
-const dependecies = require("../helpers/dependencies");
+
 /* NOTE: If you are using the express Router, you must pass in the 'routes' only the 
 root file where the route starts, such as index.js, app.js, routes.js, etc ... */
 
@@ -49,14 +49,7 @@ const swaggerInit = async (nameFile, context) => {
 
     vscode.window.showInformationMessage(`Swagger file generated successfully`);
 
-    const answer = await vscode.window.showInformationMessage(
-      `Do you want to install the dependencie 'swagger-ui-express' ?`,
-      "Yes",
-      "No"
-    );
 
-    if (answer === "Yes")
-      dependecies.installDependencies("swagger-ui-express");
   } catch (err) {
     vscode.window.showErrorMessage(err.message);
   }

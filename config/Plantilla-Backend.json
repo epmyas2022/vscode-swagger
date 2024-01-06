@@ -1,0 +1,6 @@
+{
+  "info": { "title": "test", "description": "test" },
+  "host": "localhost:8001",
+  "routes": "/routes/api.mjs",
+  "outputFile": "/swagger-output.json"
+}

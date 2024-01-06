@@ -6,8 +6,6 @@ const swaggerInit = require("../scripts/swagger");
 
 const onSave = (context) =>
   vscode.workspace.onDidSaveTextDocument((document) => {
-
-    console.log("onSave");
     const workspaceName = storage(context).get(storageEnum.SELECTED_WORKSPACE);
     swaggerInit(workspaceName + ".json", context);
   });

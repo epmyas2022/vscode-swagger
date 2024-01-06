@@ -4,7 +4,7 @@ const fs = require("fs");
 const storage = require("./storage");
 const storageEnum = require("./enums/storageEnum");
 const vscode = require("vscode");
-
+const dependecies = require("../helpers/dependencies");
 /* NOTE: If you are using the express Router, you must pass in the 'routes' only the 
 root file where the route starts, such as index.js, app.js, routes.js, etc ... */
 
@@ -20,14 +20,19 @@ const swaggerInit = async (nameFile, context) => {
 
     const docFile = require(file);
 
-    const workspacePath = storage(context).get(
+    let workspacePath = storage(context).get(
       storageEnum.SELECTED_PATH_WORKSPACE
     );
 
+    if (workspacePath.startsWith("/"))
+      workspacePath = workspacePath.substring(1);
+
     const outputFile = workspacePath + docFile.outputFile;
+
     const routes = docFile.routes
       .split(",")
       .map((route) => `${workspacePath}${route}`);
+
     const doc = {
       info: {
         title: docFile.info.title,
@@ -38,9 +43,20 @@ const swaggerInit = async (nameFile, context) => {
 
     const generate = await swaggerAutogen(outputFile, routes, doc);
 
-    if (generate && !generate['success']) {
+    if (generate && !generate["success"]) {
       vscode.window.showErrorMessage(`Error in generate swagger file`);
     }
+
+    vscode.window.showInformationMessage(`Swagger file generated successfully`);
+
+    const answer = await vscode.window.showInformationMessage(
+      `Do you want to install the dependencie 'swagger-ui-express' ?`,
+      "Yes",
+      "No"
+    );
+
+    if (answer === "Yes")
+      dependecies.installDependencies("swagger-ui-express");
   } catch (err) {
     vscode.window.showErrorMessage(err.message);
   }

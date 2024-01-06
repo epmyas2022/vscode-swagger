@@ -1,22 +1,8 @@
 {
-	"Print to console": {
-		"prefix": "log",
-
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console",
-		"detail": "Prints output to console"
-	},
-
-	"swagger tag": {
-		"prefix" : "swagger_tag",
-		"body": [
-			"//#swagger.tags = ['someTag']"
-		],
-		"description": "Swagger tag",
-		"detail": "Swagger tag"
-
-	}
+  "swagger tag": {
+    "prefix": "swagger_tag",
+    "body": ["//#swagger.tags = ['someTag']"],
+    "description": "Swagger tag",
+    "detail": "Swagger tag"
+  }
 }

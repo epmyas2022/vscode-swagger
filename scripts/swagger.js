@@ -41,6 +41,7 @@ const swaggerInit = async (nameFile, context) => {
       host: docFile.host,
     };
 
+  
     const generate = await swaggerAutogen(outputFile, routes, doc);
 
     if (generate && !generate["success"]) {
@@ -48,8 +49,6 @@ const swaggerInit = async (nameFile, context) => {
     }
 
     vscode.window.showInformationMessage(`Swagger file generated successfully`);
-
-
   } catch (err) {
     vscode.window.showErrorMessage(err.message);
   }

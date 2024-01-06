@@ -1,6 +1,6 @@
 const vscode = require("vscode");
 const fs = require("fs");
-
+const path = require("path");
 const storage = require("../scripts/storage");
 const storageEnum = require("../scripts/enums/storageEnum");
 
@@ -10,7 +10,9 @@ module.exports = (context) =>
     async function () {
       const files = fs.readdirSync(`${context.extensionPath}/config/`);
 
-      const options = files.map((file) => file.replace(".json", ""));
+      const options = files.map(
+        (file) => file.endsWith(".json") && file.replace(".json", "")
+      );
       const selected = await vscode.window.showQuickPick(options);
 
       if (!selected) return;
@@ -21,7 +23,7 @@ module.exports = (context) =>
       );
 
       const config = JSON.parse(file);
-      
+
       storage(context).create(storageEnum.BUILD, null);
 
       storage(context).create(storageEnum.SELECTED_WORKSPACE, selected);

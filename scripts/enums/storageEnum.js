@@ -5,6 +5,7 @@ const storageEnum = Object.freeze({
     SELECTED_WORKSPACE: 'selectedWorkspace',
     SELECTED_PATH_WORKSPACE: 'selectedPathWorkspace',
     BUILD: 'build',
+    EXTENSIONS_BUILD: 'extensionsBuild',
 });
 
 

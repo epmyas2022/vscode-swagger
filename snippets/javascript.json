@@ -6,6 +6,78 @@
     "detail": "Swagger tag"
   },
 
+  "swagger summary": {
+    "prefix": "swagger_summary",
+    "body": ["//#swagger.summary = 'some summary'"],
+    "description": "Swagger summary",
+    "detail": "Swagger summary"
+  },
+
+  "swagger description": {
+    "prefix": "swagger_description",
+    "body": ["//#swagger.description = 'some description'"],
+    "description": "Swagger description",
+    "detail": "Swagger description"
+  },
+
+  "swagger path": {
+    "prefix": "swagger_path",
+    "body": ["//#swagger.path = '/somePath'"],
+    "description": "Swagger path",
+    "detail": "Swagger path"
+  },
+
+  "operationId": {
+    "prefix": "swagger_operationId",
+    "body": ["//#swagger.operationId = 'someOperationId'"],
+    "description": "Swagger operationId",
+    "detail": "Swagger operationId"
+  },
+
+  "swagger parameters": {
+    "prefix": "swagger_parameters",
+    "body": [
+      "/* #swagger.parameters['parameterName'] = {",
+      "in: 'query'  ",
+      "description: 'some',",
+      "required: false,  ",
+      "type: string,  ",
+      "format: string, ",
+      "schema: array",
+      "} */"
+    ],
+    "description": "Swagger parameters",
+    "detail": "Swagger parameters"
+  },
+
+  "swagger parameter": {
+    "prefix": "swagger_parameter",
+    "body": [
+      " //#swagger.parameters['id'] = { description: 'Some description...' }"
+    ],
+    "description": "Swagger parameter",
+    "detail": "Swagger parameter"
+  },
+
+  "swagger responses": {
+    "prefix": "swagger_responses",
+    "body": [
+      "/* #swagger.responses[200] = {",
+      "description: <string>,",
+      "schema: <array>, <object> or <string>  ",
+      "} */"
+    ],
+    "description": "Swagger responses",
+    "detail": "Swagger responses"
+  },
+
+  "swagger ignore": {
+    "prefix": "swagger_ignore",
+    "body": ["//#swagger.ignore = true"],
+    "description": "Swagger ignore",
+    "detail": "Swagger ignore"
+  },
+
   "swagger-ui-express": {
     "prefix": "import-swagger-ui",
     "body": ["const swaggerUi = require('swagger-ui-express');"],

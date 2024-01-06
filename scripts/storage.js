@@ -10,15 +10,17 @@ function storage(context) {
     return context.globalState.get(key);
   };
 
-  const getProyect = ( key, proyectName) => {
-    const file = fs.readFileSync(
-      `${context.extensionPath}/config/${proyectName}.json`,
-      "utf8"
-    );
-
-    const docConfig = JSON.parse(file);
-
-    return docConfig[key];
+  const getProyect = (key, proyectName) => {
+    try {
+      const file = fs.readFileSync(
+        `${context.extensionPath}/config/${proyectName}.json`,
+        "utf8"
+      );
+      const docConfig = JSON.parse(file);
+      return docConfig[key] || null;
+    } catch (e) {
+      return null;
+    }
   };
 
   return {

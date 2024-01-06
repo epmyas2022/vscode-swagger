@@ -18,6 +18,7 @@ function activate(context) {
   // This line of code will only be executed once when your extension is activated
   console.log('Congratulations, your extension "swaggercraft" is now active!');
 
+  
   snippets(context);
 
   // The command has been defined in the package.json file

@@ -4,7 +4,7 @@ const fs = require("fs");
 const storage = require("../scripts/storage");
 const storageEnum = require("../scripts/enums/storageEnum");
 
-module.exports = (context) => 
+module.exports = (context) =>
   vscode.commands.registerCommand(
     "swaggercraft.loadConfigProyect",
     async function () {
@@ -21,8 +21,8 @@ module.exports = (context) =>
       );
 
       const config = JSON.parse(file);
-
-      console.log(config);
+      
+      storage(context).create(storageEnum.BUILD, null);
 
       storage(context).create(storageEnum.SELECTED_WORKSPACE, selected);
 
@@ -36,4 +36,3 @@ module.exports = (context) =>
       );
     }
   );
-

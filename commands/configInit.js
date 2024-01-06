@@ -17,6 +17,8 @@ module.exports = (context) =>
       const workspaceName = workspaceFolders[0].name;
       const workspacePath = workspaceFolders[0].uri.path;
 
+      storage(context).create(storageEnum.BUILD, null);
+
       const title = await vscode.window.showInputBox({
         prompt: "title of your API",
         placeHolder: "My API",
@@ -49,7 +51,7 @@ module.exports = (context) =>
         },
         host: host || "localhost:3000",
         routes: routes || "./path/userRoutes.js, ./path/bookRoutes.js",
-        outputFile:  outputFile || "/swagger-output.json",
+        outputFile: outputFile || "/swagger-output.json",
         fullPath: workspacePath,
       };
 
@@ -75,10 +77,9 @@ module.exports = (context) =>
         "Yes",
         "No"
       );
-  
-      if (answer === "Yes"){
+
+      if (answer === "Yes") {
         dependecies.installDependencies("swagger-ui-express");
-       
       }
     } catch (err) {
       console.log(err);

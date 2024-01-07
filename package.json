@@ -3,32 +3,82 @@
   "displayName": "swaggercraft",
   "description": "extension para practicar - autocomplete",
   "version": "0.0.1",
+  "icon": "./images/swagger.png",
+  "author": {
+    "name": "Isaac Castillo",
+    "email": "castillo20182017@gmail.com"
+  },
+  "publisher": "epmyas2022",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.85.1",
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+
+  ],
   "main": "./extension.js",
   "contributes": {
+    "keybindings": [
+      {
+        "command": "extension.swaggercraft.configInit",
+        "key": "ctrl+alt+s",
+        "mac": "cmd+shift+1"
+      },
+      {
+        "command": "extension.swaggercraft.loadConfigProyect",
+        "key": "ctrl+alt+l",
+        "mac": "cmd+shift+2"
+      },
+      {
+        "command": "extension.swaggercraft.onSaveConfig",
+        "key": "ctrl+alt+b",
+        "mac": "cmd+shift+3"
+      }
+    ],
     "commands": [
       {
-        "command": "swaggercraft.helloWorld",
-        "title": "Hello World"
+        "command": "extension.swaggercraft.helloWorld",
+        "title": "Hello World",
+        "category": "SwaggerCraft",
+        "icon": {
+          "light": "./images/go.png",
+          "dark": "./images/go.png"
+        },
+        "description": "Active SwaggerCraft"
       },
       {
-        "command": "swaggercraft.configInit",
-        "title": "Config Init for Swagger"
+        "command": "extension.swaggercraft.configInit",
+        "title": "Config Init for Swagger",
+        "category": "SwaggerCraft",
+        "icon": {
+          "light": "./images/go.png",
+          "dark": "./images/go.png"
+        },
+        "description": "Inicializa el archivo de configuracion para Swagger"
       },
       {
-        "command": "swaggercraft.loadConfigProyect",
-        "title": "Load Config Proyect for Swagger"
+        "command": "extension.swaggercraft.loadConfigProyect",
+        "title": "Load Config Proyect for Swagger",
+        "category": "SwaggerCraft",
+        "icon": {
+          "light": "./images/go.png",
+          "dark": "./images/go.png"
+        },
+        "description": "Carga el archivo de configuracion del proyecto para Swagger"
       },
-
       {
-        "command": "swaggercraft.onSaveConfig",
-        "title": "On Save Config Build for Swagger"
+        "command": "extension.swaggercraft.onSaveConfig",
+        "title": "On Save Config Build for Swagger",
+        "category": "SwaggerCraft",
+        "icon": {
+          "light": "./images/go.png",
+          "dark": "./images/go.png"
+        },
+        "description": "Configura el build para Swagger"
       }
     ],
     "snippets": [
@@ -41,16 +91,20 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
+    "postinstall": "npm install",
     "test": "vscode-test"
+  },
+
+  "dependencies": {
+    "swagger-autogen": "^2.23.7"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
-    "@types/vscode": "^1.85.0",
+    "@types/vscode": "^1.85.1",
     "@vscode/test-cli": "^0.0.4",
     "@vscode/test-electron": "^2.3.8",
     "eslint": "^8.56.0",
-    "swagger-autogen": "^2.23.7",
     "typescript": "^5.3.3"
   }
 }

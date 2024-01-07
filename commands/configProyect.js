@@ -6,7 +6,7 @@ const storageEnum = require("../scripts/enums/storageEnum");
 
 module.exports = (context) =>
   vscode.commands.registerCommand(
-    "swaggercraft.loadConfigProyect",
+    "extension.swaggercraft.loadConfigProyect",
     async function () {
       const files = fs.readdirSync(`${context.extensionPath}/config/`);
 

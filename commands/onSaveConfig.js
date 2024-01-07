@@ -2,7 +2,7 @@ const vscode = require("vscode");
 const storage = require("../scripts/storage");
 const storageEnum = require("../scripts/enums/storageEnum");
 module.exports = (context) =>
-  vscode.commands.registerCommand("swaggercraft.onSaveConfig", async () => {
+  vscode.commands.registerCommand("extension.swaggercraft.onSaveConfig", async () => {
 
 
     const buildSwagger = await vscode.window.showInputBox({

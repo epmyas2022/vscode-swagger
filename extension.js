@@ -25,7 +25,7 @@ function activate(context) {
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand(
-    "swaggercraft.helloWorld",
+    "extension.swaggercraft.helloWorld",
     async function () {
       // Display a message box to the user
       vscode.window.showInformationMessage("Hello World from swaggercraft!");

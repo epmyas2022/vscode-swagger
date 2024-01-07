@@ -4,7 +4,7 @@ const dependecies = require("../helpers/dependencies");
 const { storage, storageEnum, swaggerInit } = require("../scripts/index");
 
 module.exports = (context) =>
-  vscode.commands.registerCommand("swaggercraft.configInit", async function () {
+  vscode.commands.registerCommand("extension.swaggercraft.configInit", async function () {
     try {
       vscode
         .window.showInformationMessage(`NOTE: If you are using the express Router, you must pass in the 'routes' only the 

@@ -4,7 +4,7 @@ const fs = require("fs");
 const storage = require("./storage");
 const storageEnum = require("./enums/storageEnum");
 const vscode = require("vscode");
-
+const os = require("os");
 /* NOTE: If you are using the express Router, you must pass in the 'routes' only the 
 root file where the route starts, such as index.js, app.js, routes.js, etc ... */
 
@@ -24,9 +24,11 @@ const swaggerInit = async (nameFile, context) => {
       storageEnum.SELECTED_PATH_WORKSPACE
     );
 
-    if (workspacePath.startsWith("/"))
+    if (workspacePath.startsWith("/") && os.platform() === "win32")
       workspacePath = workspacePath.substring(1);
 
+
+    console.info(workspacePath);
     const outputFile = workspacePath + docFile.outputFile;
 
     const routes = docFile.routes
